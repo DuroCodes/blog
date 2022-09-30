@@ -1,0 +1,35 @@
+---
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import Body from '@components/Body.astro';
+import Content from '@components/Content.astro';
+import { IoArrowForward } from 'react-icons/io5';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header title={SITE_TITLE} />
+    <main class='pt-[56px]'>
+      <h1 class='font-bold text-center'>Blog</h1>
+      <Content>
+        <section>
+          <h1 class='text-3xl text-center mt-12 mb-8'>Oops, not found.</h1>
+          <div class='text-center py-4'>
+            <a
+              class='inline-flex items-center gap-1 underline underline-offset-2 decoration-indigo-500'
+              href='/'
+              >Go Home <IoArrowForward />
+            </a>
+          </div>
+        </section>
+      </Content>
+    </main>
+    <Footer />
+  </Body>
+</html>

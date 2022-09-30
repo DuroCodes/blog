@@ -1,0 +1,24 @@
+---
+import { IoLogoGithub } from 'react-icons/io/index.js';
+import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from './ThemeToggleButton';
+import DropdownMenu from './DropdownMenu';
+---
+
+<header class='fixed w-full z-20 p-2 backdrop-blur-md'>
+  <div class='mx-auto max-w-3xl'>
+    <nav class='flex items-center gap-3 text-base'>
+      <a href='/' class='group'>
+        <h2 class='font-semibold tracking-tighter p-2 text-lg'>Duro</h2>
+      </a>
+      <div class='items-center gap-6 hidden md:flex'>
+        <HeaderLink href='https://github.com/durocodes/' target='_blank'
+          ><IoLogoGithub />GitHub
+        </HeaderLink>
+      </div>
+      <div class='flex-1'></div>
+      <ThemeToggle client:visible />
+      <DropdownMenu client:visible />
+    </nav>
+  </div>
+</header>

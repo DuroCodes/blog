@@ -1,0 +1,68 @@
+---
+import BaseHead from '@components/BaseHead.astro';
+import Body from '@components/Body.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import Content from '@components/Content.astro';
+import Footer from '@components/Footer.astro';
+import Header from '@components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from 'src/config';
+
+export interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+
+const posts = (await Astro.glob('../pages/posts/*.{md,mdx}'))
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter?.pubDate ?? Date.now()).valueOf() -
+      new Date(a.frontmatter?.pubDate ?? Date.now()).valueOf(),
+  )
+  .filter((item) => item.frontmatter.tags.includes(category));
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <body>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <Body>
+      <Header title={SITE_TITLE} />
+      <main class='pt-[56px]'>
+        <Content>
+          <Breadcrumb>{category}</Breadcrumb>
+          <section>
+            {
+              posts.length ? (
+                <ul class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                  {posts.map((post: any) => (
+                    <li class='text-center mb-4'>
+                      <a href={post.url}>
+                        <img
+                          class='border border-slate-300 dark:border-slate-700 rounded-xl'
+                          src={post.frontmatter.heroImage}
+                          width={1440}
+                          aspect-ratio={2}
+                          alt='Thumbnail'
+                        />
+                        <div class='mt-3 text-xl'>{post.frontmatter.title}</div>
+                        <div>{post.frontmatter.description}</div>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <section>
+                  <h1 class='text-3xl text-center mt-12 mb-8'>
+                    No Posts Found
+                  </h1>
+                </section>
+              )
+            }
+            <Footer />
+          </section>
+        </Content>
+      </main>
+    </Body>
+  </body>
+</html>

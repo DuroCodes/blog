@@ -1,0 +1,24 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    "src",
+    "astro.config.mjs",
+    "tailwind.config.cjs",
+    "tools"
+  ],
+  "compilerOptions": {
+    "jsx": "react",
+    "types": [
+      "@astrojs/image/client"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ]
+    }
+  }
+}

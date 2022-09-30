@@ -1,0 +1,59 @@
+{
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:astro/recommended",
+    "airbnb-base",
+    "airbnb-typescript/base"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "overrides": [
+    {
+      "files": [
+        "*.astro"
+      ],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [
+          ".astro"
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.tsx",
+        "*.ts",
+        "*.js",
+        "*.cjs"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unsafe-assignment": "off"
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-undef": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/extensions": "off",
+    "jsx-quotes": ["error", "prefer-single" ],
+    "no-param-reassign": "off"
+  }
+}
