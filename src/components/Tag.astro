@@ -1,0 +1,15 @@
+---
+export interface Props {
+  tag: string;
+}
+
+const { tag } = Astro.props;
+---
+
+<a href={`/categories/${tag.toLowerCase()}`}>
+  <span
+    class='text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-indigo-600 bg-indigo-200 last:mr-0 mr-1'
+  >
+    {tag}
+  </span>
+</a>

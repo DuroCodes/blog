@@ -1,12 +1,12 @@
 ---
-import { IoArrowForward } from 'react-icons/io5/index.js';
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import Body from '@components/Body.astro';
 import Content from '@components/Content.astro';
+import MastHead from '@components/MastHead.astro';
 import CreatedWithSection from '@components/CreatedWithSection.astro';
-import { SITE_TITLE, SITE_DESCRIPTION, HOMEPAGE_URL } from '../config';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 const posts = (await Astro.glob('./posts/*.{md,mdx}')).sort(
   (a: any, b: any) =>
@@ -23,7 +23,7 @@ const posts = (await Astro.glob('./posts/*.{md,mdx}')).sort(
   <Body>
     <Header title={SITE_TITLE} />
     <main class='pt-[56px]'>
-      <h1 class='font-bold text-center'>Blog</h1>
+      <MastHead />
       <Content>
         <section>
           <p class='mb-8 indent-4'>
@@ -32,11 +32,6 @@ const posts = (await Astro.glob('./posts/*.{md,mdx}')).sort(
             the knowledge to grasp the topics that I learn. On this website,
             you'll see some of the fun stuff I find along the way.
           </p>
-          <a
-            class='inline-flex items-center gap-1 indent-1 text-indigo-500'
-            href={HOMEPAGE_URL}
-            >Check out some of my posts <IoArrowForward className='inline' />
-          </a>
         </section>
         <section>
           <ul class='grid grid-cols-1 md:grid-cols-2 gap-4'>

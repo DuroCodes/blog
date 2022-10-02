@@ -1,5 +1,6 @@
 ---
-import { IoLogoGithub } from 'react-icons/io/index.js';
+import { IoLogoGithub } from 'react-icons/io5/index.js';
+import { FaDiscord } from 'react-icons/fa/index.js';
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from './ThemeToggleButton';
 import DropdownMenu from './DropdownMenu';
@@ -9,11 +10,14 @@ import DropdownMenu from './DropdownMenu';
   <div class='mx-auto max-w-3xl'>
     <nav class='flex items-center gap-3 text-base'>
       <a href='/' class='group'>
-        <h2 class='font-semibold tracking-tighter p-2 text-lg'>Duro</h2>
+        <h2 class='font-semibold tracking-tighter p-2 text-lg font-poppins'>Duro</h2>
       </a>
       <div class='items-center gap-6 hidden md:flex'>
         <HeaderLink href='https://github.com/durocodes/' target='_blank'
           ><IoLogoGithub />GitHub
+        </HeaderLink>
+        <HeaderLink href='https://discord.gg/jNwHBwYJZH'>
+          <FaDiscord />Discord
         </HeaderLink>
       </div>
       <div class='flex-1'></div>

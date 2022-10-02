@@ -4,6 +4,7 @@ import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
 import Body from '@components/Body.astro';
 import Content from '@components/Content.astro';
+import Tag from '@components/Tag.astro';
 
 export interface Props {
   content: {
@@ -12,11 +13,14 @@ export interface Props {
     pubDate?: string;
     updatedDate?: string;
     heroImage?: string;
+    tags?: string[];
   };
 }
 
 const {
-  content: { title, description, heroImage },
+  content: {
+    title, description, heroImage, tags,
+  },
 } = Astro.props;
 ---
 
@@ -43,7 +47,10 @@ const {
             )
           }
         </div>
-        <h1 class='text-3xl my-1'>{title}</h1>
+        <h1 class='text-3xl my-1 font-poppins font-bold'>{title}</h1>
+        <div>
+          {tags?.map((tag) => <Tag tag={tag} />)}
+        </div>
         <div>{description}</div>
         <hr class='border-top border-slate-400 my-4' />
         <slot />

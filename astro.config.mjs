@@ -11,7 +11,6 @@ import mdx from '@astrojs/mdx';
 import { HOMEPAGE_URL } from './src/config';
 
 const require = createRequire(import.meta.url);
-
 const theme = JSON.parse(readFileSync(require.resolve('./src/themes/moonlight.json')));
 
 // https://astro.build/config
@@ -45,16 +44,17 @@ export default defineConfig({
         node.properties.className = ['word'];
       },
     }], [addClasses, {
-      h1: 'text-3xl font-bold',
-      h2: 'text-2xl font-bold',
-      h3: 'text-xl font-bold',
-      h4: 'text-lg font-bold',
+      h1: 'text-3xl font-bold underline underline-offset-2 decoration-indigo-500 mt-4 mb-4 font-poppins',
+      h2: 'text-2xl font-bold font-poppins',
+      h3: 'text-xl font-bold font-poppins',
+      h4: 'text-lg font-bold font-poppins',
       h5: 'font-bold',
       h6: 'font-bold',
       img: 'border border-slate-300 dark:border-slate-700 rounded-xl mb-6',
-      p: 'mb-6',
+      p: 'mb-4',
       a: 'underline underline-offset-2 hover:text-indigo-500 decoration-indigo-500',
-      pre: 'rounded-md !bg-red-500',
+      pre: 'rounded-md',
+      code: 'border border-slate-300 dark:border-slate-700 bg-slate-800 text-slate-300 rounded-md px-0.5',
     }]],
   },
 });

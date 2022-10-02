@@ -1,9 +1,11 @@
 ---
-import { IoChevronForward } from 'react-icons/io5/index.js';
+import { IoChevronForward, IoHome } from 'react-icons/io5/index.js';
 ---
 
 <div class='my-4 flex items-center gap-1'>
-  <a href='/' class='underline underline-offset-2'>Home</a>
+  <a href='/' class='underline underline-offset-2 font-poppins font-semibold'>
+    <IoHome />
+  </a>
   <IoChevronForward className='opacity-50' />
-  <span class='text-violet-500 font-bold'><slot /></span>
+  <span class='text-indigo-500 font-bold font-poppins'><slot /></span>
 </div>
